@@ -16,6 +16,4 @@ function game() {
   jaimeLannister = new character("Jaime Lannister", 120, 12, 15);
   robbStark = new character("Robb Stark", 300, 20, 5);
   brienneTarth = new character("Brienne Tarth", 500, 30, 10);
-
-
 }

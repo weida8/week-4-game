@@ -4,47 +4,82 @@
 <head>
   <meta charset="utf-8">
   <title>Game of Thrones Game</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="javascript/scripts.js"></script>
+  <script src="assets/javascript/game.js"></script>
 </head>
 
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-1">
-      <h1>Game of Thrones RPG!</h1>
+      <div class="col-xl-1">
+      <h1 class="text-center" id="title">Game of Thrones RPG!</h1>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-1">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-1">
-      </div>
-    </div>
-
   </div>
 
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+        <img id="jonSnow" src="assets/images/jon_snow.jpg" class="img-fluid" height="200" width="150">
+        <div class="caption">
+          <p id="jonHP"></p>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <img id="jaimeLannister" src="assets/images/jaime_lannister.jpg" height="200" width="150">
+        <div class="caption">
+          <p id="jaimeHP"></p>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <img id="robbStark" src="assets/images/robb_stark.jpg" height="200" width="150">
+        <div class="caption">
+          <p id="robbHP"></p>
+        </div>
+        </div>
+        <div class="col-sm-2">
+        <img id="brienneTarth" src="assets/images/brienne_tarth.jpg" height="200" width="150">
+        <div class="caption">
+          <p id="brienneHP"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>Your Character</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-2">
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-1">
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-1">
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>

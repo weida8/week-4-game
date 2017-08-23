@@ -1,0 +1,30 @@
+/*
+#jonSnow{
+  padding: 25px 20px 25px 20px;
+  border: solid green;
+}
+#jaimeLannister{
+  padding: 25px 20px 25px 20px;
+  border: solid green;
+}
+#robbStark{
+  padding: 25px 20px 25px 20px;
+  border: solid green;
+}
+#brienneTarth{
+  padding: 25px 20px 25px 20px;
+  border: solid green;
+}
+*/
+body{
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+}
+
+h3{
+  color: white !important;
+}
+
+#title{
+  color: white;
+}
