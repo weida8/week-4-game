@@ -17,3 +17,11 @@ function game() {
   robbStark = new character("Robb Stark", 300, 20, 5);
   brienneTarth = new character("Brienne Tarth", 500, 30, 10);
 }
+
+$(document).ready(function(){
+  game();
+  $("#jonHP").html(jonSnow.health);
+  $("#jaimeHP").html(jaimeLannister.health);
+  $("#robbHP").html(robbStark.health);
+  $("#brienneHP").html(brienneTarth.health);
+})

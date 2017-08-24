@@ -25,6 +25,14 @@ h3{
   color: white !important;
 }
 
+.card {
+  text-align: center;
+  background-size: cover;
+  background-color: white;
+  padding-bottom: : 30px;
+  border: solid green;
+}
+
 #title{
   color: white;
 }
