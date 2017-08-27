@@ -25,14 +25,37 @@ h3{
   color: white !important;
 }
 
+p {
+  margin-bottom: 0 !important;
+}
 .card {
+  position: relative;
   text-align: center;
   background-size: cover;
   background-color: white;
-  padding-bottom: : 30px;
+  padding-bottom: : 27px;
   border: solid green;
 }
-
+.bottom{
+  margin-top: 250px;
+  margin-left: 10px;
+}
+.results {
+  color: white;
+  margin-top: 250px;
+}
+#jonSnow{
+  position: relative;
+}
+#jaimeLannister{
+  position: relative;
+}
+#robbStark{
+  position: relative;
+}
+#brienneTarth{
+  position: relative;
+}
 #title{
   color: white;
 }

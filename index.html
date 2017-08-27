@@ -26,31 +26,39 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-2">
-        <div class="card">
-          <p>Jon Snow</p>
-          <img id="jonSnow" src="assets/images/jon_snow.jpg" class="img-fluid" height="200" width="150">
-          <div id="jonHP"></div>
+        <div id="jonSnow">
+          <div class="card">
+            <p>Jon Snow</p>
+            <img id="jonSnowImg" src="assets/images/jon_snow.jpg" class="img-fluid" height="180" width="130">
+            <div id="jonHP"></div>
+          </div>
         </div>
       </div>
       <div class="col-sm-2">
-        <div class="card">
-          <p>Jaime Lannister</p>
-          <img id="jaimeLannister" src="assets/images/jaime_lannister.jpg" height="200" width="150">
-          <div id="jaimeHP"></div>
+        <div id="jaimeLannister">
+          <div class="card">
+            <p>Jaime Lannister</p>
+            <img id="jaimeLannisterImg" src="assets/images/jaime_lannister.jpg" height="180" width="130">
+            <div id="jaimeHP"></div>
+          </div>
         </div>
       </div>
       <div class="col-sm-2">
-        <div class="card">
-          <p>Robb Stark</p>
-          <img id="robbStark" src="assets/images/robb_stark.jpg" height="200" width="150">
-          <div id="robbHP"></div>
+        <div id="robbStark">
+          <div class="card">
+            <p>Robb Stark</p>
+            <img id="robbStarkImg" src="assets/images/robb_stark.jpg" height="180" width="130">
+            <div id="robbHP"></div>
+          </div>
         </div>
       </div>
       <div class="col-sm-2">
-        <div class="card">
-          <p>Brienne Tarth</p>
-          <img id="brienneTarth" src="assets/images/brienne_tarth.jpg" height="200" width="150">
-          <div id="brienneHP"></div>
+        <div id=brienneTarth>
+          <div class="card">
+            <p>Brienne Tarth</p>
+            <img id="brienneTarthImg" src="assets/images/brienne_tarth.jpg" height="180" width="130">
+            <div id="brienneHP"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -73,7 +81,13 @@
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-1">
+      <div class="col-xl-1">
+        <div class="bottom">
+          <h3>Enemies Available To Attack</h3>
+          <h3>Fight Section</h3>
+          <button type="button" onClick="attackBtn()">Attack</button>
+          <h3>Defender</h3>
+        </div>
       </div>
     </div>
   </div>
@@ -84,6 +98,20 @@
       </div>
     </div>
   </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class=results>
+          <div class="result1">
+          </div>
+          <div class="result2">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </body>
 </html>
