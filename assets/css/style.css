@@ -44,6 +44,9 @@ p {
   color: white;
   margin-top: 250px;
 }
+.restartBtn{
+  color: black;
+}
 #jonSnow{
   position: relative;
 }

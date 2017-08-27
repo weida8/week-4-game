@@ -6,9 +6,13 @@ var userChar;
 var enemyCharName = "";
 var enemyChar;
 var baseAttack = 0;
-function character(nameIn, nameTextIn, healthIn, attackIn, counterIn) {
+var btnStatus = 0;
+var victoryCount = 0;
+function character(nameIn, nameTextIn, firstNameIn, lastNameIn, healthIn, attackIn, counterIn) {
   this.name = nameIn;
   this.nameText = nameTextIn;
+  this.firstName = firstNameIn;
+  this.lastName = lastNameIn;
   this.health = healthIn;
   this.attack = attackIn;
   this.counter = counterIn;
@@ -22,27 +26,50 @@ function attack(char1, char2) {
 }
 
 function game() {
-  jonSnow = new character("jonSnow", "Jon Snow", 250, 10, 20);
-  jaimeLannister = new character("jaimeLannister", "Jaime Lannister", 120, 12, 15);
-  robbStark = new character("robbStark", "Robb Stark", 300, 20, 5);
-  brienneTarth = new character("brienneTarth", "Brienne Tarth",500, 30, 10);
-  charList = [jonSnow, jaimeLannister, robbStark, brienneTarth];
+  jonSnow = new character("jonSnow", "Jon Snow", "Jon", "Targaryen", 250, 10, 20);
+  jaimeLannister = new character("jaimeLannister", "Jaime Lannister", "Jaime", "Lannister", 120, 12, 15);
+  robbStark = new character("robbStark", "Robb Stark", "Robb", "Stark", 300, 20, 5);
+  brienneTarth = new character("brienneTarth", "Brienne Tarth", "Brienne", "Tarth", 500, 30, 10);
 }
 
 function attackBtn() {
-  attack(userChar, enemyChar);
-  $("#jonHP").html(jonSnow.health);
-  $("#jaimeHP").html(jaimeLannister.health);
-  $("#robbHP").html(robbStark.health);
-  $("#brienneHP").html(brienneTarth.health);
-  $(".result1").html("You attacked "+enemyChar.nameText+" for "+ userChar.attack+ " damage.");
-  $(".result2").html(enemyChar.nameText+" attacked you back for "+enemyChar.attack+" damage.");
-  if(enemyChar.health <= 0) {
-    $("#"+enemyChar.name).remove();
-  } else if(userChar.health <= 0) {
-
+  if(btnStatus === 0){
+    console.log("victoryCount: "+victoryCount);
+    attack(userChar, enemyChar);
+    $("#jonHP").html(jonSnow.health);
+    $("#jaimeHP").html(jaimeLannister.health);
+    $("#robbHP").html(robbStark.health);
+    $("#brienneHP").html(brienneTarth.health);
+    $(".result1").html("You attacked "+enemyChar.nameText+" for "+ userChar.attack+ " damage.");
+    $(".result2").html(enemyChar.nameText+" attacked you back for "+enemyChar.attack+" damage.");
+    //user loses the game
+    if(userChar.health <= 0) {
+      console.log("lose game");
+      btnStatus = 1;
+      $(".result1").html("You have been defeated... GAME OVER!!!");
+      $(".result2").empty();
+      $(".restartBtn").append('<input type="button" class="restartBtn" value="Restart" />');
+      //user beats the enemy
+    } else if(enemyChar.health <= 0 && victoryCount <= 2) {
+      console.log("defeat one enemy");
+      phase = 1;
+      victoryCount += 1;
+      btnStatus = 1;
+      $("#"+enemyChar.name).remove();
+      $(".result1").html("You have defeated "+enemyChar.nameText+", you can choose to fight another enemy.");
+      $(".result2").empty();
+      if(victoryCount === 3){
+        console.log("won game");
+        $("#"+enemyChar.name).remove();
+        $(".result1").empty();
+        $(".result2").empty();
+        $(".result1").html("You have defeated "+enemyChar.nameText+"! You have won the Iron Throne! All hail His Grace, "
+        +userChar.firstName+" of House "+userChar.lastName
+        +", First of His Name, King of the Andals and the First Men, Lord of the Seven Kingdoms, and Protector of the Realm ");
+        }
+    }
+    }
   }
-}
 
 $(document).ready(function(){
   game();
@@ -54,7 +81,11 @@ $(document).ready(function(){
   var jaimeLannisterDim = document.getElementById("jaimeLannister").getBoundingClientRect();
   var leftPosition = jaimeLannisterDim.left-cardDim.left;
   var cardToCardPosition = jaimeLannisterDim.left-cardDim.right;
-//Phase 0***********************************************************************
+  //when user hits restart, reload the page
+  $(".restartBtn").click(function(){
+      location.reload();
+    })
+//USER CHOICE and ENEMY CHOICE**************************************************
   //user picks jon snow
   $("#jonSnow").one("click", function(){
     if(phase === 0) {
@@ -76,6 +107,7 @@ $(document).ready(function(){
       });
       //user picks jon snow as enemy
     } else if(phase === 1 && userCharName != jonSnow.name){
+        btnStatus = 0;
         enemyCharName = jonSnow.name;
         enemyChar = jonSnow;
         phase += 1;
@@ -87,6 +119,10 @@ $(document).ready(function(){
           $("#brienneTarth").animate({
             right: leftPosition*2
           });
+          if(victoryCount > 0) {
+            $("#brienneTarth").animate({
+              right: leftPosition*3
+            });
         } else if(userCharName === robbStark.name && enemyCharName === jonSnow.name){
           $("#jaimeLannister").animate({
             right: leftPosition
@@ -103,6 +139,7 @@ $(document).ready(function(){
           });
         }
     }
+  }
   });
   //user picks jaime lannister
   $("#jaimeLannister").one("click", function(){
@@ -131,6 +168,7 @@ $(document).ready(function(){
       });
     //user picks jaime as enemy
   } else if(phase === 1 && userCharName != jaimeLannister.name){
+        btnStatus = 0;
         enemyCharName = jaimeLannister.name;
         enemyChar = jaimeLannister;
         phase += 1;
@@ -145,6 +183,11 @@ $(document).ready(function(){
           $("#brienneTarth").animate({
             right: leftPosition*2
           });
+          if(victoryCount > 0) {
+            $("#brienneTarth").animate({
+              right: leftPosition*3
+            });
+          }
         } else if(userCharName === robbStark.name && enemyCharName === jaimeLannister.name){
           $("#brienneTarth").animate({
             right: leftPosition*2
@@ -182,6 +225,7 @@ $(document).ready(function(){
       });
     //user picks robb as enemy
   } else if(phase === 1 && userCharName != robbStark.name){
+        btnStatus = 0;
         enemyCharName = robbStark.name;
         enemyChar = robbStark;
         phase += 1;
@@ -196,6 +240,10 @@ $(document).ready(function(){
           $("#brienneTarth").animate({
             right: leftPosition*2
           });
+          if(victoryCount > 0) {
+            $("#brienneTarth").animate({
+              right: leftPosition*3
+            });
         } else if(userCharName === jaimeLannister.name && enemyCharName === robbStark.name){
           $("#robbStark").animate({
             right: leftPosition*2
@@ -205,6 +253,7 @@ $(document).ready(function(){
           });
         }
       }
+    }
   });
   //user picks brienne tarth
   $("#brienneTarth").one("click", function(){
@@ -231,6 +280,7 @@ $(document).ready(function(){
       });
       //user picks brienne as enemy
     } else if(phase === 1 && userCharName != brienneTarth.name){
+        btnStatus = 0;
         enemyCharName = brienneTarth.name;
         enemyChar = brienneTarth;
         phase += 1;
