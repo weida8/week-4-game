@@ -41,7 +41,7 @@ function attackBtn() {
     $("#robbHP").html(robbStark.health);
     $("#brienneHP").html(brienneTarth.health);
     $(".result1").html("You attacked "+enemyChar.nameText+" for "+ userChar.attack+ " damage.");
-    $(".result2").html(enemyChar.nameText+" attacked you back for "+enemyChar.attack+" damage.");
+    $(".result2").html(enemyChar.nameText+" attacked you back for "+enemyChar.counter+" damage.");
     //user loses the game
     if(userChar.health <= 0) {
       console.log("lose game");
