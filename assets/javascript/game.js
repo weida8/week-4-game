@@ -27,9 +27,9 @@ function attack(char1, char2) {
 
 function game() {
   jonSnow = new character("jonSnow", "Jon Snow", "Jon", "Targaryen", 250, 10, 20);
-  jaimeLannister = new character("jaimeLannister", "Jaime Lannister", "Jaime", "Lannister", 120, 12, 15);
-  robbStark = new character("robbStark", "Robb Stark", "Robb", "Stark", 300, 20, 5);
-  brienneTarth = new character("brienneTarth", "Brienne Tarth", "Brienne", "Tarth", 500, 30, 10);
+  jaimeLannister = new character("jaimeLannister", "Jaime Lannister", "Jaime", "Lannister", 120, 15, 30);
+  robbStark = new character("robbStark", "Robb Stark", "Robb", "Stark", 300, 17, 5);
+  brienneTarth = new character("brienneTarth", "Brienne Tarth", "Brienne", "Tarth", 500, 7, 15);
 }
 
 function attackBtn() {
