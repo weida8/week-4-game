@@ -63,6 +63,11 @@ function attackBtn() {
         $("#"+enemyChar.name).remove();
         $(".result1").empty();
         $(".result2").empty();
+        if(userChar === brienneTarth){
+          $(".result1").html("You have defeated "+enemyChar.nameText+"! You have won the Iron Throne! All hail Her Grace, "
+          +userChar.firstName+" of House "+userChar.lastName
+          +", First of Her Name, King of the Andals and the First Men, Lord of the Seven Kingdoms, and Protector of the Realm ");
+        }
         $(".result1").html("You have defeated "+enemyChar.nameText+"! You have won the Iron Throne! All hail His Grace, "
         +userChar.firstName+" of House "+userChar.lastName
         +", First of His Name, King of the Andals and the First Men, Lord of the Seven Kingdoms, and Protector of the Realm ");
